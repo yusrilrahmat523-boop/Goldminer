@@ -90,8 +90,45 @@ def get_user():
         )
     ).fetchone()
 
-    return user
+    if user:
 
+        return user
+
+    print(
+        "MEMBUAT USER BARU:",
+        telegram_id
+    )
+
+    db.execute(
+        """
+        INSERT INTO users
+        (
+            username,
+            telegram_id
+        )
+        VALUES
+                (?, ?)
+        """,
+        (
+            f"Player{telegram_id}",
+            str(telegram_id)
+        )
+    )
+
+    db.commit()
+
+    user = db.execute(
+        """
+        SELECT *
+        FROM users
+        WHERE telegram_id=?
+        """,
+        (
+            telegram_id,
+        )
+    ).fetchone()
+
+    return user
 
 def calculate_level(gold):
 
