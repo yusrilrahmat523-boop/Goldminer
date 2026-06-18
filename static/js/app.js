@@ -1,26 +1,19 @@
-const tg = window.Telegram.WebApp;
+const tg = window.Telegram?.WebApp;
 
-tg.expand();
+let user = null;
 
-const user =
-    tg.initDataUnsafe.user;
+if (tg) {
 
-if (user) {
+    tg.expand();
 
-    console.log(
-        "Telegram ID:",
-        user.id
-    );
+    user = tg.initDataUnsafe?.user;
 
-    console.log(
-        "Username:",
-        user.username
-    );
+    console.log("Telegram User:", user);
 
 } else {
 
     console.log(
-        "Telegram user tidak ditemukan"
+        "Telegram SDK tidak ditemukan"
     );
 
 }
@@ -76,6 +69,9 @@ const telegramUserInfo =
 document.getElementById(
     "telegramUserInfo"
 );
+
+console.log("telegramUserInfo:", telegramUserInfo);
+console.log("user:", user);
 
 /*
 ========================
@@ -955,22 +951,24 @@ document.getElementById(
     "telegramUserInfo"
 );
 
-if (telegramUser) {
+console.log("Panel Telegram dijalankan");
+
+if (user) {
 
     telegramUserInfo.innerHTML =
     `
     <b>ID:</b>
-    ${telegramUser.id}
+    ${user.id}
 
     <br><br>
 
     <b>Username:</b>
-    ${telegramUser.username || "-"}
+    ${user.username || "-"}
 
     <br><br>
 
     <b>Nama:</b>
-    ${telegramUser.first_name}
+    ${user.first_name}
     `;
 
 } else {
