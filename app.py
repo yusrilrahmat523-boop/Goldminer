@@ -25,37 +25,6 @@ TEST_TELEGRAM_ID = "987654321"
 
 def get_telegram_id():
 
-    print("================================")
-
-    print(
-        "PATH:",
-        request.path
-    )
-
-    if request.path == "/api/profile":
-
-        print(
-            "PROFILE HEADER:",
-            request.headers.get(
-                "X-Telegram-ID"
-            )
-        )
-
-    print(
-        "METHOD:",
-        request.method
-    )
-
-    print("ALL HEADERS:")
-
-    for k, v in request.headers.items():
-
-        print(
-            k,
-            "=",
-            v
-        )
-
     telegram_id = request.headers.get(
         "X-Telegram-ID"
     )
