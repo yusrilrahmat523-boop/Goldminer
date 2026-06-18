@@ -1,5 +1,3 @@
-alert("APP JS LOADED");
-
 const tg = window.Telegram?.WebApp;
 
 let user = null;
@@ -951,6 +949,35 @@ document
 );
 
 console.log("Panel Telegram dijalankan");
+
+if (telegramUserInfo) {
+
+    if (user) {
+
+        telegramUserInfo.innerHTML =
+        `
+        <b>ID:</b>
+        ${user.id}
+
+        <br><br>
+
+        <b>Username:</b>
+        ${user.username || "-"}
+
+        <br><br>
+
+        <b>Nama:</b>
+        ${user.first_name}
+        `;
+
+    } else {
+
+        telegramUserInfo.innerHTML =
+        "Telegram User Tidak Terdeteksi";
+
+    }
+
+}
 
 if (user) {
 
