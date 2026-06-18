@@ -238,6 +238,11 @@ def profile():
 
     user = get_user()
 
+    print(
+        "USERNAME:",
+        user["username"]
+    )
+
     return jsonify({
         "gold": user["gold"],
         "power": user["power"],
