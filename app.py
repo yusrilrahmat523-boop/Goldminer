@@ -34,12 +34,12 @@ def get_telegram_id():
 
     if request.path == "/api/profile":
 
-    print(
-        "PROFILE HEADER:",
-        request.headers.get(
-            "X-Telegram-ID"
+        print(
+            "PROFILE HEADER:",
+            request.headers.get(
+                "X-Telegram-ID"
+            )
         )
-    )
 
     print(
         "METHOD:",
