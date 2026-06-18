@@ -93,7 +93,13 @@ async function loadProfile() {
         {
             headers: {
                 "X-Telegram-ID":
-                user?.id || ""
+                user?.id || "",
+
+                "X-Telegram-Username":
+                user?.username || "",
+
+                "X-Telegram-Name":
+                user?.first_name || ""
             }
         }
     );

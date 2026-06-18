@@ -42,6 +42,18 @@ def get_telegram_id():
 
     return int(telegram_id)
 
+def get_telegram_username():
+
+    username = request.headers.get(
+        "X-Telegram-Username"
+    )
+
+    if username:
+
+        return username
+
+    return None
+
 def get_user():
 
     db = get_db()
@@ -79,6 +91,8 @@ def get_user():
                 (?, ?)
         """,
         (
+            get_telegram_username()
+            or
             f"Player{telegram_id}",
             str(telegram_id)
         )
