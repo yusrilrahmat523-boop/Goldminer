@@ -2,11 +2,11 @@ const tg = window.Telegram.WebApp;
 
 tg.expand();
 
-const user = tg.initDataUnsafe.user;
-
-console.log(user);
+const user =
+    tg.initDataUnsafe.user;
 
 if (user) {
+
     console.log(
         "Telegram ID:",
         user.id
@@ -16,6 +16,13 @@ if (user) {
         "Username:",
         user.username
     );
+
+} else {
+
+    console.log(
+        "Telegram user tidak ditemukan"
+    );
+
 }
 
 let gold = 0;
@@ -63,6 +70,11 @@ document.getElementById(
 const streakInfoText =
 document.getElementById(
     "streakInfo"
+);
+
+const telegramUserInfo =
+document.getElementById(
+    "telegramUserInfo"
 );
 
 /*
@@ -937,6 +949,36 @@ document
     "click",
     claimStreak
 );
+
+const telegramUserInfo =
+document.getElementById(
+    "telegramUserInfo"
+);
+
+if (telegramUser) {
+
+    telegramUserInfo.innerHTML =
+    `
+    <b>ID:</b>
+    ${telegramUser.id}
+
+    <br><br>
+
+    <b>Username:</b>
+    ${telegramUser.username || "-"}
+
+    <br><br>
+
+    <b>Nama:</b>
+    ${telegramUser.first_name}
+    `;
+
+} else {
+
+    telegramUserInfo.innerHTML =
+    "Telegram User Tidak Terdeteksi";
+
+}
 
 /*
 ========================
