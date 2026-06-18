@@ -203,13 +203,26 @@ def home():
 @app.route("/api/profile")
 def profile():
 
+    print("####################")
+
+    print("PROFILE API CALLED")
+
+    print(
+        "PROFILE HEADER:",
+        request.headers.get(
+            "X-Telegram-ID"
+        )
+    )
+
+    print("####################")
+
     user = get_user()
 
     return jsonify({
-    "gold": user["gold"],
-    "power": user["power"],
-    "prestige": user["prestige"],
-    "speed": user["speed"]
+        "gold": user["gold"],
+        "power": user["power"],
+        "prestige": user["prestige"],
+        "speed": user["speed"]
  })
 
 # ==========================================
