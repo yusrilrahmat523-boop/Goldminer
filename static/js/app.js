@@ -22,6 +22,8 @@ if (tg) {
 
 let gold = 0;
 let power = 1;
+let speed = 5;
+
 let referralLink = "";
 
 let autoMineInterval = null;
