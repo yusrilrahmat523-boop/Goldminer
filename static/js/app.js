@@ -1,3 +1,5 @@
+alert("APP JS LOADED");
+
 const tg = window.Telegram?.WebApp;
 
 let user = null;
