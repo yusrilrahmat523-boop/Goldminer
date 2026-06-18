@@ -1010,8 +1010,34 @@ START GAME
 ========================
 */
 
-telegramUserInfo.innerHTML =
-"TEST BERHASIL";
+if (telegramUserInfo) {
+
+    if (user) {
+
+        telegramUserInfo.innerHTML =
+        `
+        <b>ID:</b>
+        ${user.id}
+
+        <br><br>
+
+        <b>Username:</b>
+        ${user.username || "-"}
+
+        <br><br>
+
+        <b>Nama:</b>
+        ${user.first_name}
+        `;
+
+    } else {
+
+        telegramUserInfo.innerHTML =
+        "Telegram User Tidak Terdeteksi";
+
+    }
+
+}
 
 loadProfile();
 

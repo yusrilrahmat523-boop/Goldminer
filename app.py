@@ -535,6 +535,7 @@ def player_stats():
     "username": user["username"],
     "gold": user["gold"],
     "power": user["power"],
+    "speed": user["speed"],
     "rank": rank,
     "referrals": referrals,
     "level": level,
