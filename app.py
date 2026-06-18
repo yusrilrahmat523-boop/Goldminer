@@ -23,9 +23,28 @@ TEST_TELEGRAM_ID = "987654321"
 # HELPER
 # ==========================================
 
+def get_telegram_id():
+
+    telegram_id = request.headers.get(
+        "X-Telegram-ID"
+    )
+
+    print(
+        "HEADER TELEGRAM ID:",
+        telegram_id
+    )
+
+    if not telegram_id:
+
+        return TEST_TELEGRAM_ID
+
+    return int(telegram_id)
+
 def get_user():
 
     db = get_db()
+
+    telegram_id = get_telegram_id()
 
     user = db.execute(
         """
@@ -34,7 +53,7 @@ def get_user():
         WHERE telegram_id=?
         """,
         (
-            TEST_TELEGRAM_ID,
+            telegram_id,
         )
     ).fetchone()
 
