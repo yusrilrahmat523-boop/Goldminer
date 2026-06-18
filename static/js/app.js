@@ -1,13 +1,22 @@
-const tg =
-window.Telegram.WebApp;
+const tg = window.Telegram.WebApp;
 
 tg.expand();
-const telegramUser =
-tg.initDataUnsafe.user;
 
-console.log(
-    telegramUser
-);
+const user = tg.initDataUnsafe.user;
+
+console.log(user);
+
+if (user) {
+    console.log(
+        "Telegram ID:",
+        user.id
+    );
+
+    console.log(
+        "Username:",
+        user.username
+    );
+}
 
 let gold = 0;
 let power = 1;
