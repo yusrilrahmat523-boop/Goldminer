@@ -1,0 +1,57 @@
+let gold = 0;
+let power = 1;
+
+const goldText =
+document.getElementById("gold");
+const powerText =
+document.getElementById("power");
+
+async function loadProfile(){
+
+    let res =
+    await fetch("/api/profile");
+
+    let data =
+    await res.json();
+
+    gold = data.gold;
+    power = data.power;
+
+    render();
+}
+
+function render(){
+
+    goldText.innerHTML = gold;
+
+    powerText.innerHTML =
+    "Power: " + power;
+}
+
+async function mine(){
+
+    let res =
+    await fetch(
+        "/api/mine",
+        {
+            method:"POST"
+        }
+    );
+
+    let data =
+    await res.json();
+
+    gold = data.gold;
+    power = data.power;
+
+    render();
+}
+
+document
+.getElementById("mineBtn")
+.addEventListener(
+"click",
+mine
+);
+
+loadProfile();
