@@ -83,15 +83,21 @@ LOAD PROFILE
 
 async function loadProfile() {
 
+    console.log(
+        "LOAD PROFILE USER ID:",
+        user?.id
+    );
+
     const res = await fetch(
-    "/api/profile",
-    {
-        headers: {
-            "X-Telegram-ID":
-            user?.id || ""
+        "/api/profile",
+        {
+            headers: {
+                "X-Telegram-ID":
+                user?.id || ""
+            }
         }
-    }
-);
+    );
+
     const data = await res.json();
 
     gold = data.gold;
