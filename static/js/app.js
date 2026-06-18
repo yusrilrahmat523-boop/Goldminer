@@ -984,6 +984,9 @@ START GAME
 ========================
 */
 
+telegramUserInfo.innerHTML =
+"TEST BERHASIL";
+
 loadProfile();
 
 loadLeaderboard();
