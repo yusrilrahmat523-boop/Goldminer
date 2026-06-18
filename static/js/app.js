@@ -948,11 +948,6 @@ document
     claimStreak
 );
 
-const telegramUserInfo =
-document.getElementById(
-    "telegramUserInfo"
-);
-
 console.log("Panel Telegram dijalankan");
 
 if (user) {
