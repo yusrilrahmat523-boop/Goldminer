@@ -25,8 +25,27 @@ TEST_TELEGRAM_ID = "987654321"
 
 def get_telegram_id():
 
+    print("================================")
+
+    print(
+        "PATH:",
+        request.path
+    )
+
+    print(
+        "METHOD:",
+        request.method
+    )
+
     print("ALL HEADERS:")
-    print(dict(request.headers))
+
+    for k, v in request.headers.items():
+
+        print(
+            k,
+            "=",
+            v
+        )
 
     telegram_id = request.headers.get(
         "X-Telegram-ID"
@@ -36,6 +55,8 @@ def get_telegram_id():
         "HEADER TELEGRAM ID:",
         telegram_id
     )
+
+    print("================================")
 
     if not telegram_id:
 
